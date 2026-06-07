@@ -7,7 +7,7 @@
 推荐用本地静态服务器打开，这样 service worker 才能注册并缓存应用壳。当前机器可以直接运行：
 
 ```powershell
-& "C:\Users\Qiwi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" -m http.server 4173 --bind 127.0.0.1
+& "C:\Users\(Username)\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" -m http.server 4173 --bind 127.0.0.1
 ```
 
 如果你的系统已经安装了 Python，也可以运行：
