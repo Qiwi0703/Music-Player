@@ -4,21 +4,9 @@
 
 ## 使用方式
 
-推荐用本地静态服务器打开，这样 service worker 才能注册并缓存应用壳。当前机器可以直接运行：
-
-```powershell
-& "C:\Users\(Username)\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" -m http.server 4173 --bind 127.0.0.1
-```
-
-如果你的系统已经安装了 Python，也可以运行：
-
-```powershell
-python -m http.server 4173
-```
-
-然后访问 `http://127.0.0.1:4173`。
-
-如果只是快速预览，也可以直接打开 `index.html`，但浏览器通常不会允许 `file://` 页面注册离线缓存。
+~~~
+https://music-player.qiwi0703.workers.dev/
+~~~
 
 ## 功能
 
