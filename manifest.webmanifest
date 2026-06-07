@@ -1,0 +1,18 @@
+{
+  "name": "Offline Beat",
+  "short_name": "Offline Beat",
+  "description": "离线使用的 Spotify 风格本地音乐播放器",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

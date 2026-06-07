@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121212" />
+    <title>Offline Beat</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="歌单导航">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Offline Beat</span>
+        </div>
+
+        <div class="library-actions">
+          <button class="primary-button" id="importSongsButton" type="button">
+            <span aria-hidden="true">+</span>
+            导入歌曲
+          </button>
+          <input
+            id="songFileInput"
+            type="file"
+            accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg,audio/mp4,audio/x-m4a,audio/aac"
+            multiple
+            hidden
+          />
+
+          <form class="playlist-form" id="playlistForm">
+            <label class="sr-only" for="playlistNameInput">新歌单名称</label>
+            <input id="playlistNameInput" type="text" maxlength="40" placeholder="新歌单名称" />
+            <button class="icon-button" type="submit" aria-label="创建歌单" title="创建歌单">+</button>
+          </form>
+
+          <form class="url-form" id="audioUrlForm">
+            <label class="sr-only" for="audioUrlInput">音频文件链接</label>
+            <input id="audioUrlInput" type="url" placeholder="粘贴 MP3 / M4A 链接" />
+            <button class="secondary-button" id="audioUrlButton" type="submit">添加链接</button>
+          </form>
+        </div>
+
+        <nav class="playlist-nav" id="playlistNav" aria-label="我的歌单"></nav>
+      </aside>
+
+      <main class="main-view">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">离线音乐库</p>
+            <h1 id="activePlaylistTitle">我的歌单</h1>
+            <p id="playlistMeta">导入本地歌曲后开始播放</p>
+          </div>
+          <button class="play-large" id="playPlaylistButton" type="button" aria-label="播放当前歌单">
+            <span id="playPlaylistIcon" aria-hidden="true">▶</span>
+          </button>
+        </header>
+
+        <section class="track-panel" aria-label="歌曲列表">
+          <div class="track-table-head" aria-hidden="true">
+            <span>#</span>
+            <span>标题</span>
+            <span>时长</span>
+            <span></span>
+          </div>
+          <div class="track-list" id="trackList"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="player-bar" aria-label="播放器">
+      <div class="now-playing">
+        <div class="cover-mini" aria-hidden="true"></div>
+        <div>
+          <p id="currentSongTitle">未播放</p>
+          <span id="currentPlaylistName">选择一首歌曲</span>
+        </div>
+      </div>
+
+      <div class="transport">
+        <div class="transport-buttons">
+          <button class="icon-button" id="previousButton" type="button" aria-label="上一首" title="上一首">⏮</button>
+          <button class="round-button" id="playPauseButton" type="button" aria-label="播放或暂停" title="播放或暂停">
+            <span id="playPauseIcon" aria-hidden="true">▶</span>
+          </button>
+          <button class="icon-button" id="nextButton" type="button" aria-label="下一首" title="下一首">⏭</button>
+        </div>
+        <div class="progress-row">
+          <span id="currentTime">0:00</span>
+          <label class="sr-only" for="progressRange">播放进度</label>
+          <input id="progressRange" type="range" min="0" max="100" value="0" step="0.1" />
+          <span id="durationTime">0:00</span>
+        </div>
+      </div>
+
+      <div class="volume-control">
+        <span aria-hidden="true">🔊</span>
+        <label class="sr-only" for="volumeRange">音量</label>
+        <input id="volumeRange" type="range" min="0" max="1" value="0.8" step="0.01" />
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
